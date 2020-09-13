@@ -1,5 +1,6 @@
 package com.example.madlevel2task1
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,15 +18,17 @@ class PlaceAdapter(private val places: List<Place>) : RecyclerView.Adapter<Place
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_place, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return places.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.databind(places[position])
     }
 
 }
